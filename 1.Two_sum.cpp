@@ -42,7 +42,43 @@ void twoSumEfficientWithSet(vector<int> &num, int target)
     }   
 }
 
-void print(vector<int> &result){
+vector<int> twoSumEfficientWithMap(vector<int> &num, int target)
+{
+    int n=num.size();
+    unordered_map<int,int> ump;
+    vector<int> result;
+
+    // for(int i=0;i<n;i++)
+    // {
+    //     ump[num[i]]==i;
+    // }
+
+    for(int i=0;i<n;i++)
+    {
+        auto found = ump.find(target-num[i]);
+        if(found!=ump.end())
+        {
+            result.push_back(found->second);
+           result.push_back(i);
+           return result;
+        }
+        else
+            ump[num[i]]=i;
+    }
+
+    // for (int i = 0; i < n; i++)
+    // {
+    //     if (ump.count(target - num[i]) == 1)
+    //         return {ump[target - num[i]], i};
+    //     ump[num[i]]=i;
+    
+    // }
+
+    return {};
+}
+
+    void print(vector<int> &result)
+{
     for (auto i : result)
     {
         cout << i << " ";
@@ -61,7 +97,10 @@ int main()
     print(result);
 
     twoSumEfficientWithSet(num,target);
+    cout<<"solution using Map"<<endl;
 
+    vector<int> result1 = twoSumEfficientWithMap(num,target);
+    print(result1);
 
-    return 0;
+        return 0;
 }
