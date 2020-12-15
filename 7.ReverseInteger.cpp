@@ -21,6 +21,24 @@ public:
         return res;
     }
 
+    int reverse1(int x)
+    {
+        int sign = x >= 0 ? 1 : -1;
+        int res = 0;
+        while (x != 0)
+        {
+            if (res <= INT_MAX / 10)
+            {
+                res = res * 10 + abs(x % 10);
+                x = x / 10;
+            }
+            else
+                return 0;
+        }
+
+        return res * sign;
+    }
+
     int reverseWithString(int x);
 };
 
@@ -54,6 +72,8 @@ int main()
     Solution rev;
     cout<<rev.reverse(-123);
     cout<<"using string"<<endl;
-    cout<<rev.reverseWithString(-456);
+    cout<<rev.reverseWithString(-456)<<endl;
+
+    cout<<rev.reverse1(-987)<<endl;
 
 }
