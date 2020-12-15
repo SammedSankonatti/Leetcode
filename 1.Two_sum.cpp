@@ -22,7 +22,7 @@ vector<int> twoSumBruteForce(vector<int> &num, int target)
     return result;
 }
 
-void twoSumEfficient(vector<int> &num, int target)
+void twoSumEfficientWithSet(vector<int> &num, int target)
 {
     int n= num.size();
     set<int> s;
@@ -60,7 +60,7 @@ int main()
     vector<int> result =twoSumBruteForce(num, target);
     print(result);
 
-    twoSumEfficient(num,target);
+    twoSumEfficientWithSet(num,target);
 
 
     return 0;
