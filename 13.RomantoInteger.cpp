@@ -19,16 +19,18 @@ public:
 
         for(int i=0;i<s.size();i++)
         {
-            if(mp[s[i]]>=mp[s[i+1]])
-            {
-                N+= mp[s[i]]+mp[s[i+1]];
-                i++;
-            }
+           auto current = mp.find(s[i]);
+           int currentInt= current->second;
+           auto next = mp.find(s[i+1]);
+           int nextInt= next->second;
+
+            if(currentInt > nextInt)
+                N+= currentInt;
             else
             {
-                N += abs(mp[s[i]] - mp[s[i + 1]]);
+                N+= nextInt-currentInt;
                 i++;
-            }
+            }     
         }
     return N;
     }
@@ -37,6 +39,6 @@ public:
 int main()
 {
     Solution roman;
-    cout<<roman.romanToInt("XLVII");
+    cout<<roman.romanToInt("MCMXCIV");
 
 }
