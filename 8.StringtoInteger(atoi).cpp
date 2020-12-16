@@ -41,5 +41,5 @@ public:
 int main()
 {
     Solution sol;
-    cout << sol.myAtoi("98912");
+    cout << sol.myAtoi("8912");
 }
