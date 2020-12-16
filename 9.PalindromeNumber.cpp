@@ -6,17 +6,19 @@ class Solution
 public:
     bool isPalindrome(int x)
     {
-        if(x<0)
+        if (x < 0)
             return false;
-        
-        int temp=x;
 
-        string str= to_string(x);
-        ::reverse(str.begin(),str.end());
-        
-        x=stoi(str);
+        int temp = x;
+        long result=0;
 
-        if(x==temp)
+    while(x)
+    {
+        result=result*10+ x%10;
+        x/=10;
+    }
+
+        if (result == temp)
             return true;
         return false;
     }
@@ -26,7 +28,7 @@ int main()
 {
 
     Solution pal;
-    if (pal.isPalindrome(0))
+    if (pal.isPalindrome(INT_MAX+121))
         cout<<"yes palindrome"<<endl;
     else
         cout<<"Not palindrome"<<endl;
