@@ -10,6 +10,11 @@ public:
         st.push(s[0]);
         for(int i=1;i<s.size();i++)
         {
+            if(st.empty())
+            {
+                st.push(s[i++]);
+            }
+
             if (s[i] == ')' && st.top() == '(' || s[i] == ']' && st.top() == '[' || s[i] == '}' && st.top() == '{' )
                 st.pop();
             else
@@ -25,7 +30,7 @@ public:
 int main()
 {
     Solution valid;
-    if (valid.isValid("()()[]{[]}{"))
+    if (valid.isValid("(){}"))
         cout<<"Yes valid"<<endl;
     else
         cout<<"not valid"<<endl;
