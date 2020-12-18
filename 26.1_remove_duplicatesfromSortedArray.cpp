@@ -24,4 +24,22 @@ int main()
     {
        cout<<arr[i]<<" ";
     }
+
+    cout<<"--------------------------------------------------------"<<endl;
+    int array[]={5,6,6,7,7,8};
+    int m = sizeof(array) / sizeof(array[0]);
+    int k=0;
+    for(int i=0;i<m-1;i++)
+    {
+        if(array[i]!=array[i+1])
+        {
+            array[k++]=array[i];
+        }
+    }
+    array[k++]=array[m-1];
+    cout<<"array is"<<endl;
+    for(int i=0;i<k;i++)
+    {
+        cout<<array[i]<< " ";
+    }
 }
