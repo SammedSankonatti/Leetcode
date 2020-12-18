@@ -10,9 +10,11 @@ public:
        for(auto i:nums)
        {
            if(i!=val)
-            count++;
+                nums[count++]=i;
        }
-       return count;
+       auto it=nums.begin()+count;
+       nums.erase(it,nums.end());
+       return nums.size();
     }
 };
 
@@ -20,5 +22,10 @@ int main()
 {
     Solution rem;
     vector<int> vect{2,3,3,2,2,2,3};
-    cout<<rem.removeElement(vect,3);
+    cout<<rem.removeElement(vect,3)<<endl;
+
+    for(auto i:vect)
+    {
+        cout<<i<< " ";
+    }
 }
