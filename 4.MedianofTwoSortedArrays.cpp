@@ -7,37 +7,25 @@ public:
     double findMedianSortedArrays(vector<int> &nums1, vector<int> &nums2)
     {
         int n1=nums1.size(), n2= nums2.size();
-        int i=0,j=0;
-        vector<int> res(0);
-        while(i<n1&& j<n2)
+         for(int k=0;k<n2;k++)
+         {
+             nums1.push_back(nums2[k]);
+         }
+
+        sort(nums1.begin(),nums1.end());
+        int p=nums1.size();
+        int mid=p/2;
+        double res=0;
+        if(p%2==0)
         {
-            if(nums1[i]<=nums2[j])
-                res.push_back(nums1[i++]);
-            else
-                res.push_back(nums2[j++]);
+            int num =nums1[mid] + nums1[mid - 1];
+            res= ((double)num)/2;
         }
+        else
+            res= nums1[mid];
 
-       while(i<n1)
-       {
-           res.push_back(nums1[i++]);
-       }
-       while(j<n2)
-       {
-           res.push_back(nums2[j++]);
-       }
-
-        int m=res.size();
-
-        // for(auto p:res)
-        // {
-        //     cout<<p<<" ";
-        // }
-        
-        if(m%2==0)
-            return float((res[m / 2] + res[m / 2 - 1]) / 2);
-        return res[m/2];
+        return res;
     }
-    
 };
 
 int main()
