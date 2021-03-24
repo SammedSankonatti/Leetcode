@@ -11,9 +11,6 @@ struct TreeNode
     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
 };
 
-//     Input: root = [3,9,20,null,null,15,7]
-//     Output: [[3],[20,9],[15,7]]
-
 class Solution
 {
 public:
