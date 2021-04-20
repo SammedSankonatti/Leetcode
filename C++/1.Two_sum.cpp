@@ -71,7 +71,6 @@ vector<int> twoSumEfficientWithMap(vector<int> &num, int target)
     //     if (ump.count(target - num[i]) == 1)
     //         return {ump[target - num[i]], i};
     //     ump[num[i]]=i;
-    
     // }
 
     return {};
